@@ -1,0 +1,201 @@
+<header tuiNavigationHeader>
+    <span tuiNavigationLogo>
+        <tui-icon icon="@tui.slack"></tui-icon>
+        <span tuiFade>Finovate</span>
+        <tui-badge>Free Plan</tui-badge>
+    </span>
+
+    <tui-icon icon="@tui.star" size="xs" />
+
+    <tui-breadcrumbs tuiFade>
+        <a 
+        *tuiItem
+        tuiLink
+        >Dashboard</a>
+
+        <a 
+        *tuiItem
+        tuiLink>Default</a>
+    </tui-breadcrumbs>
+    
+    <tui-textfield iconStart="@tui.search">
+        <input placeholder="search  or type a command" tuiTextfield>
+    </tui-textfield>
+
+    <hr />
+    <button 
+    iconStart="@tui.download"
+    tuiIconButton></button>
+
+    <button 
+    iconStart="@tui.plus"
+    tuiIconButton></button>
+
+    <button 
+    iconStart="@tui.upload"
+    tuiIconButton></button>
+
+    <button 
+    iconStart="@tui.copy"
+    tuiIconButton></button>
+</header>
+<div [style.display]="'flex'">
+    <aside [tuiNavigationAside]="expanded()" [style.height.rem]="'30'">
+        <header>
+            <button iconStart="@tui.home"  tuiAsideItem>Default</button>
+        </header>
+    
+        <button  iconStart="@tui.slack" tuiAsideItem>Dashboard</button>
+        <button  iconStart="@tui.wallet" tuiAsideItem>Transactions</button>
+        <button  iconStart="@tui.menu" tuiAsideItem>Payments</button>
+
+        <hr>
+        <button iconStart="@tui.slack"  tuiAsideItem>Tools</button>
+
+        <tui-aside-group>
+            <button  iconStart="@tui.slack" tuiChevron tuiAsideItem>Cards
+                <ng-template>
+                    <button  iconStart="@tui.menu" tuiAsideItem>Visa</button>
+                    <button  iconStart="@tui.menu" tuiAsideItem>MasterCard</button>
+                    <button  iconStart="@tui.menu" tuiAsideItem>WesternUnion</button>
+                    <button  iconStart="@tui.menu" tuiAsideItem>Mpesa Global</button>
+                </ng-template>
+            </button>
+        </tui-aside-group>
+
+        <button  iconStart="@tui.wallet" tuiAsideItem>Vaults</button>
+        <button  iconStart="@tui.menu" tuiAsideItem>Capital</button>
+
+        <hr />
+        <button iconStart="@tui.slack"  tuiAsideItem>Insights</button>
+
+        <button  iconStart="@tui.slack" tuiAsideItem>Reports</button>
+        <button  iconStart="@tui.wallet" tuiAsideItem>Analytics</button>
+        <button  iconStart="@tui.menu" tuiAsideItem>Activity</button>
+
+        <hr />
+        <button iconStart="@tui.slack"  tuiAsideItem>Other</button>
+        <button  iconStart="@tui.slack" tuiAsideItem>Earn</button>
+        <button  iconStart="@tui.wallet" tuiAsideItem>Invoices</button>
+
+        <footer>
+            <button  iconStart="@tui.settings" tuiAsideItem>Settings</button>
+            <button  iconStart="@tui.user" tuiAsideItem>Profile</button>
+            <button
+            tuiAsideItem
+            [iconStart]="expanded()?'@tui.chevron-left':'@tui.chevron-right'"
+            (click)="handleToggle()">
+
+                {{expanded()? 'Collapse':'Expand'}}
+            </button>
+        </footer>
+    </aside>
+    <main tuiNavigationMain tuiAppearance="info">
+        <nav compact tuiSubheader>
+            <button tuiButton>Hello</button>
+        </nav>
+        <!-- <app-adduser></app-adduser> -->
+         <div tuiCardLarge>
+            <tui-badge appearance="warning">Balances</tui-badge>
+        </div>
+
+        <div class="balances d-flex m-auto p-3">
+            <div tuiCardMedium tuiAppearance="positive" class="m-1" [style.height]="'fit-content'">
+                <h3 tuiTitle [style.color]="'orange'">
+                    <span tuiSubtitle>KSH Balances <br> <tui-icon tuiAppearance="positive" icon="@tui.arrow-up-right"/> 2%</span>
+                    KES 50000
+                </h3>
+            </div>
+            <div tuiCardMedium tuiAppearance="negative" class="m-1"  [style.height]="'fit-content'">
+                <h3 tuiTitle [style.color]="'orange'">
+                    <span tuiSubtitle>GBP Balances <br><tui-icon tuiAppearance="negative" icon="@tui.arrow-down-left"/> 3%</span>  
+                      $900              
+                </h3>
+            </div>
+            <div tuiCardMedium tuiAppearance="warning" class="m-1"  [style.height]="'fit-content'">
+                <h3 tuiTitle [style.color]="'orange'">
+                    <span tuiSubtitle>USD Balances <br><tui-icon tuiAppearance="warning" icon="@tui.arrow-down-left"/> 4%</span>
+                    $4700
+                </h3>
+            </div>
+        </div>
+
+
+        <label
+        tuiCardLarge
+        tuiSurface
+        class="card">
+            <div tuiFade>
+                <tui-thumbnail-card
+                [style.margin]="'1px'"
+                iconStart="@tui.lock"
+                paymentSystem="mastercard"
+                size="l"
+                [style.zoom]="'300%'"
+                tuiAppearance="warning"
+                tuiRipple
+                [style.--tui-ripple-background]="'green'"
+                >
+                    48884
+                </tui-thumbnail-card>
+                
+                <tui-thumbnail-card
+                iconStart="@tui.lock"
+                paymentSystem="visa"
+                [style.zoom]="'300%'"
+                tuiAppearance="primary"
+                size="l"
+                tuiRipple
+                >
+                    445
+                </tui-thumbnail-card>
+                <tui-thumbnail-card
+                iconStart="@tui.lock"
+                paymentSystem="unionpay"
+                [style.zoom]="'300%'"
+                [style.margin]="'1px'"
+                tuiAppearance="accent"
+                size="l"
+                tuiRipple
+                >
+                    984
+                </tui-thumbnail-card>
+                <tui-thumbnail-card
+                iconStart="@tui.lock"
+                paymentSystem="verve"
+                [style.zoom]="'300%'"
+                [style.margin]="'1px'"
+                tuiAppearance="info"
+                size="l"
+                tuiRipple
+                >
+                    456
+                </tui-thumbnail-card>
+                <tui-thumbnail-card
+                iconStart="@tui.lock"
+                paymentSystem="uzcard"
+                [style.zoom]="'300%'"
+                [style.margin]="'1px'"
+                tuiAppearance="positive"
+                size="l"
+                tuiRipple
+                >
+                    584
+                </tui-thumbnail-card>
+                <tui-thumbnail-card
+                iconStart="@tui.lock"
+                paymentSystem="mir"
+                [style.zoom]="'300%'"
+                [style.margin]="'1px'"
+                tuiAppearance="warning"
+                size="l"
+                tuiRipple
+                >
+                    500
+                </tui-thumbnail-card>
+            </div>
+        </label>
+         <app-members></app-members>
+    </main>
+</div>
+
