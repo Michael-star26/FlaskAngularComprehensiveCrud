@@ -1,0 +1,75 @@
+<div tuiCardLarge class="hr card m-auto d-flex" tuiAppearance="flat">
+    <tui-scrollbar
+class="scroll"
+waIntersectionRoot
+>
+    <table tuiAppearance="positive" tuiTable [columns]="columns" size="s" class="table" >
+        <thead tuiThead draggable="true" >
+            <tr tuiThGroup>
+                <th tuiTh *tuiHead="'id'" [resizable]="true">
+                    ID
+                </th>
+                <th tuiTh *tuiHead="'image'" [resizable]="true">
+                    Image
+                </th>
+                <th tuiTh *tuiHead="'username'" [resizable]="true">
+                    Username
+                </th>   
+                <th tuiTh *tuiHead="'fname'" [resizable]="true"> 
+                    First Name
+                </th>
+                <th tuiTh *tuiHead="'lname'" [resizable]="true">
+                    Last Name
+                </th>
+                <th tuiTh *tuiHead="'email'" [resizable]="true">
+                    Email
+                </th>
+                <th tuiTh *tuiHead="'ip'" [resizable]="true">
+                    IP
+                </th>
+                <th tuiTh *tuiHead="'Mac'" [resizable]="true">
+                    Mac Address
+                </th>
+                <th tuiTh *tuiHead="'uuid'" [resizable]="true">
+                    UUID
+                </th>
+            </tr>
+        </thead>
+        <tbody tuiTbody [data]="data" draggable="true">
+            <tr tuiTr *ngFor="let item of memberData">
+                <td tuiTd *tuiCell="'id'">
+                    {{item.id}}
+                </td>
+                <td tuiTd *tuiCell="'image'">
+                    <tui-avatar tuiAvatarOutline="linear-gradient(#c86dd7, #3023ae)"
+                    [style.background]="'gold'"
+                    [style.color]="'yellow'" src="https://robohash.org/{{item.username}}.png"/>                   
+                </td>
+                <td tuiTd *tuiCell="'username'">
+                    {{item.username}}
+                </td>
+                <td tuiTd *tuiCell="'fname'">
+                    {{item.firstname}}
+                </td>
+                <td tuiTd *tuiCell="'lname'">
+                    {{item.lastname}}
+                </td>
+                <td tuiTd *tuiCell="'email'">
+                    {{item.email}}
+                </td>
+                <td tuiTd *tuiCell="'ip'">
+                    {{item.ip}}
+                </td>
+                <td tuiTd *tuiCell="'Mac'">
+                    {{item.macAddress}}
+                </td>
+                <td tuiTd *tuiCell="'uuid'">
+                    {{item.uuid}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</tui-scrollbar>
+
+
+</div>

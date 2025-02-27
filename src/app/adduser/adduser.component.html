@@ -1,0 +1,87 @@
+<form tuiForm="m"
+tuiCardLarge
+tuiAppearance="floating"
+[formGroup]="usersForm"
+[style.max-width.rem]="35"
+id="form"
+(ngSubmit)="submitForm()"
+>
+    <div *ngIf="!usersForm.get('name')?.hasError('required') && usersForm.get('name')?.touched;else requiredError">
+        <div *ngIf="!usersForm.get('email')?.hasError('required') && usersForm.get('email')?.touched;else requiredError">
+            <div *ngIf="!usersForm.get('tel')?.hasError('required') && usersForm.get('tel')?.touched;else requiredError">
+                <div *ngIf="!usersForm.get('idNo')?.hasError('required') &&  usersForm.get('idNo')?.touched;else requiredError">
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!submitted;else warning"></div>
+    <header tuiHeader>
+        <h2 tuiTitle tuiFade>
+            Add Users
+            <span tuiSubtitle>Add a new user and grant privileges</span>
+        </h2>
+        <span tuiAccessories>
+            <tui-textfield>
+                <label tuiLabel>
+                    Name
+                </label>
+                <input type="text" 
+                formControlName="name"
+                 placeholder="Enter Name"
+                 tuiTextfield
+                 name="name"
+                >
+            </tui-textfield>
+            <br>
+            <tui-textfield>
+                <label tuiLabel>Email</label>
+                <input type="email" tuiTextfield placeholder="Enter Email" formControlName="email">
+            </tui-textfield>
+            <br>
+            <tui-textfield>
+                <label tuiLabel>Phone</label>
+                <input type="tel" formControlName="tel" placeholder="(000)000 000 000" tuiTextfield>
+            </tui-textfield>
+            <br>
+            <tui-textfield>
+                <label>ID Number</label>
+                <input type="number" tuiTextfield formControlName="idNo" placeholder="xxxxxxxx">
+            </tui-textfield>
+            <br>
+            <button type="submit" tuiButton size="s" [disabled]="usersForm.invalid">Add User</button>
+        </span>
+    </header>
+    <ng-template #success>
+        <tui-notification appearance="success">
+            <h3 tuiTitle>Submitted Successfully</h3>
+            <span tuiSubtitle>User User has been added</span>
+        </tui-notification>
+    </ng-template>
+    <ng-template #error>
+        <tui-notification appearance="error">
+            <h3 tuiTitle>Failed</h3>
+            <span tuiSubtitle>Failed to add user </span>
+        </tui-notification>
+    </ng-template>
+
+    <ng-template #warning>
+        <tui-notification appearance="success">
+            <span tuiSubtitle>{{message}}</span>
+        </tui-notification>
+    </ng-template>
+
+    <ng-template #emptyError>
+        <tui-notification appearance="info">
+            <h3 tuiTitle>Hint</h3> 
+            <span tuiSubtitle>Please fill the form below</span>
+        </tui-notification>
+    </ng-template>
+    <ng-template #requiredError>
+        <tui-notification appearance="warning">
+            <h3 tuiTitle>Warning</h3>
+            <span tuiSubtitle>Fill the required fields</span>
+        </tui-notification>
+    </ng-template>
+</form>
+<img src="https://robohash.org/tom.png">
